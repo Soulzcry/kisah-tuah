@@ -81,17 +81,32 @@ def concatenate_scenes_with_bumper(
     return final_output
 
 
+def get_available_video_model(client: genai.Client) -> str:
+    """Mengesahkan model janaan video yang tersedia untuk API key semasa."""
+    try:
+        models = [m.name for m in client.models.list()]
+        for target in ["models/veo-2.0-generate-001", "veo-2.0-generate-001"]:
+            if any(target in m for m in models):
+                return "veo-2.0-generate-001"
+    except Exception:
+        pass
+    return "veo-2.0-generate-001"
+
+
 def render_scene_video(
     client: genai.Client,
     prompt_text: str,
     reference_images: List[str],
     output_video_path: str,
 ) -> str:
-    """Memanggil API penjanaan video Gemini tanpa parameter terhad (fps)."""
+    """Memanggil API penjanaan video dengan sintaks terkini."""
     os.makedirs(os.path.dirname(output_video_path), exist_ok=True)
 
+    target_model = get_available_video_model(client)
+
+    # Menggunakan prompt teks bersih berpandukan format standard
     operation = client.models.generate_videos(
-        model="veo-2.0-generate-001",
+        model=target_model,
         prompt=prompt_text,
         config=types.GenerateVideosConfig(
             aspect_ratio="9:16",
