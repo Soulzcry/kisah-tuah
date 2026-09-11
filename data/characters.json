@@ -1,0 +1,58 @@
+{
+  "characters": [
+    {
+      "id": "tuah",
+      "canonical_name": "Tuah",
+      "age": 7,
+      "role": "Protagonis Kanak-kanak",
+      "description": "Kanak-kanak lelaki Melayu ceria berambut potongan mangkuk, bermata bundar ekspresif, berbaju kemeja-T belang merah-putih dan seluar pendek kelabu.",
+      "asset_strip_path": "assets/characters/tuah_strip.png",
+      "voice_profile": {
+        "pitch": "tinggi-ceria",
+        "tone": "anak kecil ramah, bersemangat dan sopan",
+        "language": "ms-MY"
+      },
+      "anti_drift_rules": [
+        "Corak kemeja sentiasa belang mendatar merah-putih (ketebalan 2:1)",
+        "Potongan rambut mangkuk hitam pekat tidak boleh bertukar gaya",
+        "Tekstur kulit mengekalkan sentuhan tanah liat berdimensi (claymation)"
+      ]
+    },
+    {
+      "id": "oyen",
+      "canonical_name": "Oyen",
+      "age": 1,
+      "role": "Kucing Teman Setia",
+      "description": "Anak kucing bulu pendek berwarna oren jingga dengan corak belang tabby pekat, bermata besar bulat, dan ekor melengkung lincah.",
+      "asset_strip_path": "assets/characters/oyen_strip.png",
+      "voice_profile": {
+        "pitch": "halus-tinggi",
+        "tone": "dengusan purr lembut, bunyi meow comel dan reaksi spontan",
+        "language": "animal-vocal"
+      },
+      "anti_drift_rules": [
+        "Skala saiz mesti kekal kerdil berbanding paras betis atau dada Tuah",
+        "Corak belang jingga gelap mesti simetri pada dahi dan ekor",
+        "Mengekalkan tekstur tanah liat bertekstur gebu"
+      ]
+    },
+    {
+      "id": "tokwan",
+      "canonical_name": "Tok Wan",
+      "age": 68,
+      "role": "Datuk Pembimbing & Sauh Teladan",
+      "description": "Warga emas Melayu berwajah tenang dengan senyuman mesra, berjanggut putih kemas, memakai songkok hitam baldu, baju Melayu teluk belanga hijau lembut dan kain pelikat.",
+      "asset_strip_path": "assets/characters/tokwan_strip.png",
+      "voice_profile": {
+        "pitch": "rendah-hangat",
+        "tone": "lemah-lembut, penuh nasihat dan kasih sayang",
+        "language": "ms-MY"
+      },
+      "anti_drift_rules": [
+        "Songkok hitam baldu sentiasa dipakai kemas",
+        "Kain pelikat bercorak kotak klasik tona tanah",
+        "Postur sedikit membongkok santai mencerminkan usia emas"
+      ]
+    }
+  ]
+}

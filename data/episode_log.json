@@ -1,0 +1,87 @@
+{
+  "next_episode_index": 3,
+  "history": [
+    {
+      "episode_id": "EP_001",
+      "title": "Abang Tuah Selamatkan Comel di Pokok",
+      "moral_theme": "Menyayangi haiwan dan membantu makhluk yang dalam kesusahan",
+      "target_value": "Ihsan & Keberanian",
+      "active_cast": ["tuah", "oyen"],
+      "primary_location": "halaman_rumah",
+      "date_rendered": "2026-09-11",
+      "output_file": "output/EP_001_master_30s.mp4",
+      "status": "COMPLETED",
+      "breakdown_8s": {
+        "scene_1": {
+          "duration": "00:00 - 00:08",
+          "action": "Tuah terdengar bunyi anak kucing, menoleh ke dahan pokok rambutan dan ternampak Oyen tersangkut.",
+          "dialogue": "Eh, bunyi apa tu? Kesiannya si comel, tersangkut atas pokok."
+        },
+        "scene_2": {
+          "duration": "00:08 - 00:16",
+          "action": "Tuah menghulurkan kedua-dua belah tangan ke dahan untuk menyambut Oyen dengan cermat.",
+          "dialogue": "Jangan takut meow, hulurkan tangan. Mari Abang Tuah sambut perlahan-lahan."
+        },
+        "scene_3": {
+          "duration": "00:16 - 00:24",
+          "action": "Tuah memeluk Oyen dengan selamat di dada sambil tersenyum memandang kamera menyampaikan pesanan teladan.",
+          "dialogue": "Alhamdulillah, selamat pun! Kawan-kawan, sayangi haiwan dan sentiasa tolong mereka yang dalam kesusahan ya."
+        }
+      },
+      "bumper": {
+        "duration": "00:24 - 00:30",
+        "type": "tiktok_follow",
+        "asset_path": "assets/bumpers/tiktok_outro_6s.mp4"
+      }
+    },
+    {
+      "episode_id": "EP_002",
+      "title": "Rezeki Ikan untuk Oyen",
+      "moral_theme": "Sentiasa berbuat baik sesama makhluk dan prihatin terhadap haiwan kelaparan",
+      "target_value": "Keprihatinan & Berbuat Baik",
+      "active_cast": ["tuah", "oyen"],
+      "primary_location": "halaman_rumah",
+      "date_rendered": "2026-09-11",
+      "output_file": "output/EP_002_master_30s.mp4",
+      "status": "COMPLETED",
+      "breakdown_8s": {
+        "scene_1": {
+          "duration": "00:00 - 00:08",
+          "action": "Tuah melutut mengusap Oyen yang lemah berbaring di atas tanah kerana kelaparan.",
+          "dialogue": "Eh Oyen, kesiannya kamu. Perut berbunyi ya? Mesti kamu lapar sangat ni."
+        },
+        "scene_2": {
+          "duration": "00:08 - 00:16",
+          "action": "Tuah meletakkan mangkuk seramik berisi ikan kecil di hadapan Oyen lalu Oyen memakannya berselera.",
+          "dialogue": "Tunggu sekejap ya. Nah, makan ikan ni. Kita kena selalu berbuat baik sesama makhluk."
+        },
+        "scene_3": {
+          "duration": "00:16 - 00:24",
+          "action": "Tuah duduk bersila memangku dan mengusap Oyen yang kenyang sambil tersenyum memberi nasihat.",
+          "dialogue": "Bila Oyen kenyang dan gembira, Tuah pun rasa bahagia. Ingat kawan-kawan, sayangi haiwan di sekeliling kita."
+        }
+      },
+      "bumper": {
+        "duration": "00:24 - 00:30",
+        "type": "tiktok_follow",
+        "asset_path": "assets/bumpers/tiktok_outro_6s.mp4"
+      }
+    }
+  ],
+  "upcoming_moral_themes": [
+    {
+      "theme_id": "THEME_003",
+      "title": "Tepian Sungai Bersih, Hati Tenang",
+      "moral_value": "Menjaga kebersihan alam sekitar dan tidak membuang sampah merata-rata",
+      "recommended_cast": ["tuah", "oyen"],
+      "recommended_location": "tepi_sungai"
+    },
+    {
+      "theme_id": "THEME_004",
+      "title": "Anjung Ilmu Tok Wan",
+      "moral_value": "Adab mendengar nasihat orang tua dan sifat sabar menuntut ilmu",
+      "recommended_cast": ["tokwan", "tuah", "oyen"],
+      "recommended_location": "anjung_rumah"
+    }
+  ]
+}

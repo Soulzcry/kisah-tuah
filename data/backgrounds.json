@@ -1,0 +1,43 @@
+{
+  "backgrounds": [
+    {
+      "id": "halaman_rumah",
+      "canonical_name": "Halaman Rumah Tok Wan",
+      "description": "Laman tanah liat bersih di hadapan rumah panggung kayu tradisional Melayu bertangga batu, dihiasi pokok rambutan rendang berbuah merah lebat, rumpun pokok pisang, dan laluan bertanah lembut.",
+      "asset_anchor_path": "assets/backgrounds/halaman_rumah.png",
+      "lighting_default": "Pencahayaan petang tropika yang hangat (golden hour rim lighting), teduhan daun pokok yang lembut di atas tanah",
+      "key_elements": [
+        "Rumah panggung kayu berukir klasik",
+        "Tangga kayu hadapan dengan pelapik batu",
+        "Pokok rambutan gading rendang berbuah merah cerah",
+        "Dedaun hijau tropika gaya tanah liat stop-motion"
+      ]
+    },
+    {
+      "id": "anjung_rumah",
+      "canonical_name": "Anjung Serambi Rumah Tok Wan",
+      "description": "Ruang beranda kayu terbuka dengan lantai papan licin, berpagar kisi-kisi kayu tradisional, dilengkapi meja kayu bulat kecil dan bangku rendah.",
+      "asset_anchor_path": "assets/backgrounds/anjung_rumah.png",
+      "lighting_default": "Cahaya redup semula jadi bawah bumbung cucur atap dengan tempias sinaran matahari luar yang terang",
+      "key_elements": [
+        "Lantai papan kayu berurat kemas",
+        "Pagar susur kisi-kisi kayu",
+        "Mangkuk anyaman mengkuang di atas meja bulat",
+        "Pemandangan hijau dedaun kampung di latar belakang"
+      ]
+    },
+    {
+      "id": "tepi_sungai",
+      "canonical_name": "Tepian Sungai Kampung",
+      "description": "Tebing sungai jernih berbatu sungai licin, rumput hijau pendek bertekstur tanah liat, pokok kelapa meliuk santai, dan jambatan kayu kecil di kejauhan.",
+      "asset_anchor_path": "assets/backgrounds/tepi_sungai.png",
+      "lighting_default": "Sinaran matahari pagi segar dengan kilauan pantulan air jernih gaya stop-motion",
+      "key_elements": [
+        "Aliran air jernih bertekstur resin tanah liat",
+        "Batu-batu sungai bulat pelbagai saiz",
+        "Tebing berumput hijau segar",
+        "Jambatan kayu klasik di sudut jauh"
+      ]
+    }
+  ]
+}
