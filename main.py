@@ -87,13 +87,8 @@ def render_scene_video(
     reference_images: List[str],
     output_video_path: str,
 ) -> str:
-    """Memanggil API penjanaan video Gemini dengan muatan rujukan visual."""
+    """Memanggil API penjanaan video Gemini tanpa parameter terhad (fps)."""
     os.makedirs(os.path.dirname(output_video_path), exist_ok=True)
-    contents = [prompt_text]
-
-    for img_path in reference_images:
-        if os.path.exists(img_path):
-            contents.append(Image.open(img_path))
 
     operation = client.models.generate_videos(
         model="veo-2.0-generate-001",
@@ -101,7 +96,6 @@ def render_scene_video(
         config=types.GenerateVideosConfig(
             aspect_ratio="9:16",
             duration_seconds=8,
-            fps=24,
         ),
     )
 
