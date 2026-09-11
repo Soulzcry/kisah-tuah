@@ -81,16 +81,27 @@ def concatenate_scenes_with_bumper(
     return final_output
 
 
+# Senarai model mengikut keutamaan — Veo 3.1 menggantikan Veo 2.0 (tamat 30 Jun 2026)
+_VEO_PRIORITY = [
+    "veo-3.1-generate-preview",
+    "veo-3.1-fast-generate-preview",
+    "veo-3.0-generate-preview",
+]
+
+
 def get_available_video_model(client: genai.Client) -> str:
-    """Mengesahkan model janaan video yang tersedia untuk API key semasa."""
+    """Mengesahkan model janaan video Veo yang tersedia untuk API key semasa."""
     try:
-        models = [m.name for m in client.models.list()]
-        for target in ["models/veo-2.0-generate-001", "veo-2.0-generate-001"]:
-            if any(target in m for m in models):
-                return "veo-2.0-generate-001"
-    except Exception:
-        pass
-    return "veo-2.0-generate-001"
+        available = [m.name for m in client.models.list()]
+        for candidate in _VEO_PRIORITY:
+            if any(candidate in m for m in available):
+                print(f"[Model] Menggunakan: {candidate}")
+                return candidate
+        # Jika tiada yang tersenarai, cuba model utama secara terus
+        print(f"[Model] Senarai model tidak dapat disemak — cuba {_VEO_PRIORITY[0]}")
+    except Exception as exc:
+        print(f"[Model] Gagal senarai model ({exc}) — cuba {_VEO_PRIORITY[0]}")
+    return _VEO_PRIORITY[0]
 
 
 def render_scene_video(
@@ -104,13 +115,14 @@ def render_scene_video(
 
     target_model = get_available_video_model(client)
 
-    # Menggunakan prompt teks bersih berpandukan format standard
+    # Menggunakan generate_videos dengan keyword arguments sahaja (sintaks terkini)
     operation = client.models.generate_videos(
         model=target_model,
         prompt=prompt_text,
         config=types.GenerateVideosConfig(
             aspect_ratio="9:16",
             duration_seconds=8,
+            number_of_videos=1,
         ),
     )
 
