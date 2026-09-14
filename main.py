@@ -3,6 +3,7 @@ import os
 import subprocess
 import sys
 import time
+import mimetypes
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -46,7 +47,7 @@ def extract_last_frame(video_path: str, output_image_path: str) -> str:
 def concatenate_scenes_with_bumper(
     scene_videos: List[str], bumper_path: str, final_output: str
 ) -> str:
-    """Mencantumkan 3 babak (8s x 3 = 24s) bersama bumper penutup (6s) menjadi 30 saat tepat."""
+    """Mencantumkan babak (8s setiap satu) bersama bumper penutup (6s)."""
     os.makedirs(os.path.dirname(final_output), exist_ok=True)
     concat_list_path = "temp/concat_manifest.txt"
 
@@ -115,14 +116,36 @@ def render_scene_video(
 
     target_model = get_available_video_model(client)
 
+    # Convert image file paths to VideoGenerationReferenceImage objects
+    api_reference_images = []
+    for img_path in reference_images:
+        if os.path.exists(img_path):
+            with open(img_path, "rb") as f:
+                img_bytes = f.read()
+            mime_type, _ = mimetypes.guess_type(img_path)
+            if not mime_type:
+                mime_type = "image/png"
+            api_reference_images.append(
+                types.VideoGenerationReferenceImage(
+                    image=types.Image(
+                        image_bytes=img_bytes,
+                        mime_type=mime_type
+                    )
+                )
+            )
+
     # Menggunakan generate_videos dengan keyword arguments sahaja (sintaks terkini)
     operation = client.models.generate_videos(
         model=target_model,
-        prompt=prompt_text,
+        source=types.GenerateVideosSource(
+            prompt=prompt_text
+        ),
         config=types.GenerateVideosConfig(
             aspect_ratio="9:16",
             duration_seconds=8,
             number_of_videos=1,
+            person_generation="allow_adult",
+            reference_images=api_reference_images if api_reference_images else None,
         ),
     )
 
@@ -190,6 +213,11 @@ def run_pipeline():
             "action": "Tuah memangku Oyen yang sudah kenyang sambil tersenyum ke arah kamera memberi pesanan moral.",
             "dialogue": "Sayangi haiwan di sekeliling kita ya kawan-kawan!",
         },
+        {
+            "id": 4,
+            "action": "Tuah melambai tangan ke arah kamera sambil Oyen mengiau manja di sebelahnya.",
+            "dialogue": "Jumpa lagi kawan-kawan! Bye bye!",
+        },
     ]
 
     rendered_scenes = []
@@ -218,7 +246,8 @@ def run_pipeline():
         extract_last_frame(video_path, prev_frame_path)
 
     bumper_path = "assets/bumpers/tiktok_outro_6s.mp4"
-    final_output = f"output/{target_ep_id}_master_30s.mp4"
+    # Duration could be 38s now with 4 scenes, so changing the file suffix to be generic
+    final_output = f"output/{target_ep_id}_master.mp4"
 
     concatenate_scenes_with_bumper(rendered_scenes, bumper_path, final_output)
 
