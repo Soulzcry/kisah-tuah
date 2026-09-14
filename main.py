@@ -4,6 +4,7 @@ import subprocess
 import sys
 import time
 import mimetypes
+import urllib.request
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -155,9 +156,15 @@ def render_scene_video(
 
     result = operation.result
     if result and result.generated_videos:
-        video_bytes = result.generated_videos[0].video.video_bytes
-        with open(output_video_path, "wb") as f:
-            f.write(video_bytes)
+        video = result.generated_videos[0].video
+        if video.video_bytes:
+            with open(output_video_path, "wb") as f:
+                f.write(video.video_bytes)
+        elif video.uri:
+            # Muat turun dari URI awan (cloud URI) jika video_bytes tiada
+            urllib.request.urlretrieve(video.uri, output_video_path)
+        else:
+            raise RuntimeError("Tiada data video atau URI dikembalikan oleh API.")
         return output_video_path
     else:
         raise RuntimeError("Gagal menjana video babak daripada API.")
